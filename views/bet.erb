@@ -1,6 +1,39 @@
-<h2>Nice to meet you, <%= @player_name %></h2>
+<h2>Nice to meet you, <%= session[:player_name] %></h2>
 
-<h3> Make a bet for this round</h3>
+<div class="well">
+  <h4>Dealer cards:</h4>
+     <% session[:dealer_cards].each do |card| %>
+      <%= card_image(card) %>
+    <% end %>
+</div>
+
+<br>
+
+<div class="well">
+  <h4>Player cards:</h4>
+    <% session[:player_cards].each do |card| %>
+    <%= card_image(card) %>
+    <% end %>
+
+</div>
+
+
+<p>
+  What would <%= session[:player_name] %> like to do?
+  <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
+</p>
+
+<% if @show_hit_or_stay_buttons %>
+<form id="hit_form" action = "/bet/player/hit" method="post">
+  <input type="submit" class="btn btn-success" value = "Hit" />
+</form>
+
+<form id="stay_form" action = "/bet/player/stay" method="post">
+  <input type="submit" class="btn btn-warning" value = "Stay" />
+</form>
+<% end %>
+
+<h3 id="heavy"> Make a bet for this round</h3>
 
 <input type="text" name="bet_amt">
 <input type="submit" class="btn" value="Make Bet">
