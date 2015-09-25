@@ -1,4 +1,4 @@
-<div>
+<div class="clearfix">
   <% if @play_again %>
 <h4>Would you like to play again, <%= session[:player_name] %>?</h4>
 <form action = "/game/play_again" method="post" id="play_yes" >
@@ -18,7 +18,7 @@
   <h4>Dealer cards:</h4>
     <% session[:dealer_cards].each_with_index do |card, i| %>
       <% if session[:turn] != "dealer" && i == 0 %>
-        <img src="images/cards/cover.jpg">
+        <img src="/images/cards/cover.jpg">
       <% else %>
        <%= card_image(card) %>
       <% end %>
