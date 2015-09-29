@@ -1,0 +1,17 @@
+1) HTML is the language that you use to style the presentation of webpages
+   CSS is the language that you use to imlement HTML changes in bulk so that you can conveniently implement wide scale changes without individually modifying HTML pages.
+   Javascript is the language that you use to build interactive component to webpages and building block for jquery which allows users to refresh pages without leaving the    page
+
+ 2) The major parts of HTTP request are method (get vs. post), URL, request header and request body
+ 3) The major parts of HTTP response are status code, response header and response body
+ 4) params[:username] = "bob"; If you use a 'GET request', I presume you need to implement a form button and set 'name=username'
+ 5) So that you remember to use 'session' if there is any continuous state that you want to carryover from one page to the next or within the same page refresh
+ 6) Because web browsers are designed to readily understand/interpret/decode the incomign and outgoing messages; mobile applications, downloaded software application on your local drive
+ 7) MVC standas for Model, View and Controller. Basically allows the developer to separate the presentation from the logic engine that determines the content of the presentation so it turns into a cleaner process for development
+ 
+For Sinitra related questions,
+1) Requests are processed by sending out to the server and then server decides which page/info to display
+2) Rendering is displaying its own content while redirecting points to another page to display the requested content
+3) by using '<=%....%>' symbols
+4) ERB templated is turned into HTML when 'main.rb' file is run
+5) The instance variables can be used as 'true/false' conditions for dispalying key messages on the page similar on/off switch concept 
