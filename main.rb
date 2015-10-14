@@ -96,6 +96,11 @@ post '/form' do
     halt erb(:form)
   end
 
+  if params[:player_name].match(/[^a-zA-Z]/)
+    @error = "Need to enter alphabet letters only"
+    halt erb(:form)
+  end
+
   session[:player_name] = params[:player_name]
     redirect '/game'
   #:locals => {:player_name => params[:player_name]}
