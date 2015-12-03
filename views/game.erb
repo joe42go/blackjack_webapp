@@ -1,13 +1,20 @@
+<div id="game">
+  <%if @loser %>
+    <div class="alert alert-error"><%=@loser%></div>
+  <% end %>
+  <% if @winner %>
+    <div class="alert alert-success"><%=@winner%></div>
+  <% end %>
 <div class="clearfix">
   <% if @play_again %>
-<h4>Would you like to play again, <%= session[:player_name] %>?</h4>
-<form action = "/game/play_again" method="post" id="play_yes" >
-  <input type="submit" class="btn btn-primary" value = "Yes" />
-</form>
-<form action = "/game_over" method="get" id="play_no" >
-  <input type="submit" class="btn" value = "No" />
-</form>
-<% end %>
+    <h4>Would you like to play again, <%= session[:player_name] %>?</h4>
+    <form action = "/game/play_again" method="post" id="play_yes" >
+      <input type="submit" class="btn btn-primary" value = "Yes" />
+    </form>
+    <form action = "/game_over" method="get" id="play_no" >
+      <input type="submit" class="btn" value = "No" />
+    </form>
+  <% end %>
 </div>
 
 <% if @first_greeting %>
@@ -32,7 +39,7 @@
 <% end %>
 
 <% if @issue_dealer_card %>
-<form action = "/game/dealer/hit" method="post">
+<form action = "/game/dealer/hit" method="post" id="dealer_hit">
   <input type="submit" class="btn btn-info" value = "New Card for Dealer &#8594" />
 </form>
 <% end %>
@@ -50,7 +57,9 @@
 
 <p>
   What would <%= session[:player_name] %> like to do?
-  <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
+  <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>.
+  <br>
+  <%= session[:player_name] %> has $<%= session[:player_pot] %> total. Bet amount this round: <strong>$<%= session[:player_bet] %></strong>
 </p>
 
 <% if @show_hit_or_stay_buttons %>
@@ -62,6 +71,7 @@
   <input type="submit" class="btn btn-warning" value = "Stay" />
 </form>
 <% end %>
+</div>
 
 
 
