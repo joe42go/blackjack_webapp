@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function(){
   player_hits();
   player_stays();
   dealer_hit();
@@ -6,21 +6,20 @@ $(document).ready(function() {
 
 function player_hits() {
   $(document).on("click", "form#hit_form input", function() {
-    alert("player hits");
-
+    alert("player hits!");
     $.ajax({
       type: "POST",
       url: "/game/player/hit",
     }).done(function(msg){
       $("#game").replaceWith(msg)
     });
-      return false;
+    return false;
   });
 }
 
-function player_stays(){
+function player_stays() {
   $(document).on("click", "form#stay_form input", function() {
-  alert("player stays");
+    alert("player stays!");
     $.ajax({
       type: "POST",
       url: "/game/player/stay",
@@ -31,15 +30,15 @@ function player_stays(){
   });
 }
 
-function dealer_hit()
+function dealer_hit() {
   $(document).on("click", "form#dealer_hit input", function() {
-  alert("dealer hits");
-  $.ajax({
-    type: "POST",
-    url: "/game/dealer/hit",
-  }).done(function(msg){
-    $("#game").replaceWith(msg)
-  });
-     return false;
+  alert("dealer hits!");
+    $.ajax({
+      type: "POST",
+      url: "/game/dealer/hit",
+    }).done(function(msg){
+      $("#game").replaceWith(msg)
+    });
+    return false;
   });
 }
