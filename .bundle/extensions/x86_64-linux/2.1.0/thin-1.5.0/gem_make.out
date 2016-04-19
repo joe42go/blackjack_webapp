@@ -1,0 +1,44 @@
+/usr/local/opt/rbenv/versions/2.1.5/bin/ruby -r ./siteconf20150909-4136-fgyjlk.rb extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling thin.c
+thin.c: In function ‘Thin_HttpParser_alloc’:
+thin.c:243:3: warning: implicit declaration of function ‘thin_http_parser_init’ [-Wimplicit-function-declaration]
+   thin_http_parser_init(hp);
+   ^
+thin.c: In function ‘Thin_HttpParser_finish’:
+thin.c:295:3: warning: implicit declaration of function ‘thin_http_parser_finish’ [-Wimplicit-function-declaration]
+   thin_http_parser_finish(http);
+   ^
+thin.c:297:3: warning: implicit declaration of function ‘thin_http_parser_is_finished’ [-Wimplicit-function-declaration]
+   return thin_http_parser_is_finished(http) ? Qtrue : Qfalse;
+   ^
+thin.c: In function ‘Thin_HttpParser_execute’:
+thin.c:335:5: warning: implicit declaration of function ‘thin_http_parser_execute’ [-Wimplicit-function-declaration]
+     thin_http_parser_execute(http, dptr, dlen, from);
+     ^
+thin.c:339:5: warning: implicit declaration of function ‘thin_http_parser_has_error’ [-Wimplicit-function-declaration]
+     if(thin_http_parser_has_error(http)) {
+     ^
+compiling parser.c
+In file included from parser.rl:7:0:
+parser.rl: In function ‘thin_http_parser_execute’:
+parser.rl:112:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   assert(pe - p == len - off && "pointers aren't same distance");
+                 ^
+parser.rl: In function ‘thin_http_parser_finish’:
+parser.rl:142:3: warning: implicit declaration of function ‘thin_http_parser_has_error’ [-Wimplicit-function-declaration]
+   if (thin_http_parser_has_error(parser) ) {
+   ^
+parser.rl:144:3: warning: implicit declaration of function ‘thin_http_parser_is_finished’ [-Wimplicit-function-declaration]
+   } else if (thin_http_parser_is_finished(parser) ) {
+   ^
+linking shared-object thin_parser.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 thin_parser.so ./.gem.20150909-4136-1d9hilr
+installing default thin_parser libraries
